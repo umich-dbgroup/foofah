@@ -1,2 +1,2 @@
-# foofah
-source code of Foofah data transformation by example project
+# Foofah
+The source code of Foofah project will be released soon!
