@@ -1,6 +1,6 @@
 # Foofah
 
-**Foofah** [[1]](foofah#references) [[2]](foofah#references)  is a programming-by-example data transformation program synthesis system. It is able to generate a data transformation program defined in Professor Joe Hellerstein's Potter's Wheel paper [[3]](foofah#references) using an input-output example from the end user.
+**Foofah** [1][2]  is a programming-by-example data transformation program synthesis system. It is able to generate a data transformation program defined in Professor Joe Hellerstein's Potter's Wheel paper [3] using an input-output example from the end user.
 
 ## Requirements
 
