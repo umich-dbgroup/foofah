@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Foofah - Data Transformation By Example</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+    <link rel="stylesheet" media="screen" href="/static/bower_components/handsontable/dist/handsontable.full.css">
+    <script src="/static/bower_components/handsontable/dist/handsontable.full.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style/main.css">
+
+
+    <!-- <script src="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.js"></script> -->
+    <link rel="stylesheet" media="all" href="/static/bower_components/hover/css/hover.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="/static/style/loading.css">
+
+        <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+    <script src="/static/js/foofah.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="/static/js/jquery.easing.min.js"></script>
+    <script src="/static/js/scrolling-nav.js"></script>
+
+
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+  <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    <link rel="stylesheet" href="/static/css/codeStyle/agate.css">
+<script src="/static/js/highlight.pack.js"></script>
+<script>hljs.configure({
+  tabReplace: '  ', // 4 spaces
+  languages: 'py'     // don't append class prefix
+                      // … other options aren't changed
+});
+  hljs.initHighlightingOnLoad();</script>
+</head>
+
+
+<!-- 
+  <script type="text/javascript">
+
+
+$(function() {
+  // Set this variable with the height of your sidebar + header
+var x = $("#inputDiv").position();
+var offsetPixels = x.top;
+
+var ifAdded = false;
+
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > offsetPixels) {
+      $( ".scrollingBox" ).css({
+        "position": "fixed",
+        "bottom": "0px"
+        // "right": "0px"
+        // "left": "50%",
+        // "margin-right": "-50%",
+        // "text-align": "center"
+      });
+      if(ifAdded==false){
+        $( "#inputFooter" ).text( "Input Example" );
+        ifAdded = true;
+      }
+    } else {
+      $( ".scrollingBox" ).css({
+        "position": "relative",
+      });
+      if(ifAdded==true){
+        $( "#inputFooter" ).text( "" );
+        ifAdded = false;
+      }
+    }
+  });
+});
+</script> -->
+
+
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Foofah</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#tutorial">Tutorial</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#input">Create Examples</a>
+                    </li>
+                    <li>
+                        <a id="result_btn" class="page-scroll hidden" href="#result">Synthesized Program</a>
+                    </li>
+                    <li>
+                        <a id="verify_btn" class="page-scroll hidden" href="#verify">Verification</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Foofah - Data Transformation By Example</h1>
+                    <p>Foofah helps data transformation using examples.</p>
+                    <!-- <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a> -->
+                </div>
+                
+            </div>
+            <a href="#tutorial" class="button hvr-icon-hang page-scroll">Tutorial</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tutorial" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>How to use Foofah?</h1>
+                    <div style="max-width:500px;margin: 0 auto!important;">
+                    <div class="embed-responsive embed-responsive-16by9" >
+                  <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/Ura2pxez_Bo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                </div>
+                </div>
+                <!-- 16:9 aspect ratio -->
+                
+
+				            </div>
+            <a href="#input" class="button hvr-icon-hang page-scroll">Start Testing</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="input" class="services-section">
+            <div class="dropdown">
+        <button onmouseover="dropDownloadExample()" class="dropbtn">Try Example Tasks</button>
+          <div id="myDropdown" class="dropdown-examples hidden">
+            <a onclick="loadExample('hard_short_1.txt')" href="#home">Example 1</a>
+            <a onclick="loadExample('hard_lengthy_1.txt')" href="#about">Example 2</a>
+            <a onclick="loadExample('hard_lengthy_2.txt')" href="#contact">Example 3</a>
+          </div>
+
+        </div>
+        <p>
+
+
+
+        <div class="container">    
+
+           <div class="row">
+       
+<!--           <div id="inputDiv"  class="col-sm-1" >
+               <a href="#">Example 1</a>
+         <a href="#">Example 2</a>
+          <a href="#">Example 3</a>
+          </div>
+ -->
+            <div id="inputDiv"  class="col-sm-6 border-right" >
+      
+                     <h1>Input Example</h1>   
+
+
+                    <div id="inputTableDiv">
+                    <!-- <h2 id="inputFooter"></h2> -->
+                            </div>
+            </div>
+            <div id="outputDiv" class="col-sm-6 border-left">
+ 
+                     <h1>Output Example</h1>   
+ 
+                    <div id="outputTableDiv">
+                            </div>
+            </div>
+            </div>
+
+
+
+
+                    
+
+                    
+<!-- <div class="fixed-action-btn horizontal">
+    <a onmouseover="findSelectedData()" class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+ -->
+                   <a id="submitButton" onclick="submitData()" class="button hvr-shutter-out-horizontal">Foofah!</a>
+                   <div id="processingLabel">
+                
+                <!-- http://tobiasahlin.com/spinkit/ -->
+                <div class="sk-cube-grid">
+                  <div class="sk-cube sk-cube1"></div>
+                  <div class="sk-cube sk-cube2"></div>
+                  <div class="sk-cube sk-cube3"></div>
+                  <div class="sk-cube sk-cube4"></div>
+                  <div class="sk-cube sk-cube5"></div>
+                  <div class="sk-cube sk-cube6"></div>
+                  <div class="sk-cube sk-cube7"></div>
+                  <div class="sk-cube sk-cube8"></div>
+                  <div class="sk-cube sk-cube9"></div>
+                </div>
+            </div>
+        </div>
+        <p></p>
+
+                <div id="success-alert" class="alert alert-success hidden" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">    
+        <span aria-hidden="true">&times;</span>
+    </button> 
+    <strong>Success!</strong> Foofah found a <a href = "#result" class = "alert-link page-scroll" style="color:crimson;">solution (click me)</a>.
+    </div>
+
+    <div id="warning-alert" class="alert alert-warning hidden" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">    
+        <span aria-hidden="true">&times;</span>
+    </button> 
+    <strong>Timeout!</strong> Foofah could not find a solution within 60 seconds.</div>
+
+        <div id="failure-alert" class="alert alert-danger hidden" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">    
+        <span aria-hidden="true">&times;</span>
+    </button> 
+    <strong>Failure!</strong> Foofah could not find a solution. Please double-check your example(s).</div>
+
+
+
+
+
+        
+
+    </section>
+
+    <section id="result" class="contact-section">
+    <div class="container">
+    <div class="row">
+            <div  class="col-sm-12" >
+            <h3>Synthesized Data Transformation Program in Python</h3>  
+            <pre><code  id="code" class="py github" style="text-align: left!important; height: 800px">
+            </code></pre>
+            </div>
+    </div>
+    <a href="#verify" onclick="" class="button hvr-icon-hang page-scroll">Verify This Script</a>
+    </div>
+
+    </section>
+
+
+    <section id="verify" class="intro-section">
+    
+        <div class="container">    
+
+           	<div class="row">
+
+<!-- 	            <div id="verifyInputDiv"  class="col-sm-12" >
+	      
+	                     <h1>Input Data</h1>   
+
+
+	                    <div id="verifyInputTableDiv" style="max-width:800px;margin: 0 auto!important;">
+
+	                            </div>
+
+	                    
+	       
+	            </div> -->
+
+              <div id="inputDiv"  class="col-sm-6 border-right" >
+      
+                     <h3>Test Data</h3>   
+
+
+                    <div id="verifyInputTableDiv">
+                    <!-- <h2 id="inputFooter"></h2> -->
+                            </div>
+              </div>
+              <div id="outputDiv" class="col-sm-6 border-left">
+   
+                       <h3>Transformed Data</h3>   
+   
+                      <div id="verifyOutputTableDiv">
+                              </div>
+              </div>
+
+
+            </div>
+            <a id="verifyBtn" onclick="verifyProgram()" class="button2 hvr-icon-spin">Execute Program</a>
+
+
+    	</div>
+
+    </section>
+
+
+
+
+
+     <script>
+
+
+    var container = document.getElementById('inputTableDiv');
+
+     var cols = 15,
+      rows = 5,
+      i, j, len,
+      data1 = [], data2=[], data3=[], data4=[];
+  
+  for (i = 0; i < rows; i++) {
+    data1[i] = [];
+    for (j = 0; j < cols; j++) {
+      data1[i].push("");
+    }
+
+
+    data2[i] = [];
+    for (j = 0; j < cols; j++) {
+      data2[i].push("");
+    }
+
+    data3[i] = [];
+    for (j = 0; j < cols; j++) {
+      data3[i].push("");
+    }
+
+    data4[i] = [];
+    for (j = 0; j < cols; j++) {
+      data4[i].push("");
+    }
+  }
+
+
+
+    var inputHandsonTable = new Handsontable(container, {
+      data: data1,
+      minSpareCols: 1,
+      minSpareRows: 1,
+      rowHeaders: true,
+      colHeaders: true,
+      contextMenu: true, 
+      manualColumnMove: true,
+      manualRowMove: true,
+      undo: true,
+      copyPaste: true,
+      preventOverflow: 'horizontal'
+  });
+
+     var container2 = document.getElementById('outputTableDiv');
+
+    // var data2 = [
+    // [""]
+    // ];
+
+
+    var outputHandsonTable = new Handsontable(container2, {
+      data: data2,
+      minSpareCols: 1,
+      minSpareRows: 1,
+      startRows: 20,
+      startCols: 20,
+      rowHeaders: true,
+      colHeaders: true,
+      contextMenu: true, 
+      manualColumnMove: true,
+      manualRowMove: true,
+      undo: true,
+      copyPaste: true,
+      preventOverflow: 'horizontal'
+  });
+
+
+    var container3 = document.getElementById('verifyInputTableDiv');
+
+    // var data2 = [
+    // [""]
+    // ];
+
+
+    var verifyInputHandsonTable = new Handsontable(container3, {
+      data: data3,
+      minSpareCols: 1,
+      minSpareRows: 1,
+      startRows: 20,
+      startCols: 20,
+      rowHeaders: true,
+      colHeaders: true,
+      contextMenu: true, 
+      manualColumnMove: true,
+      manualRowMove: true,
+      undo: true,
+      copyPaste: true,
+      preventOverflow: 'horizontal'
+  });
+
+
+    var container4 = document.getElementById('verifyOutputTableDiv');
+
+    // var data2 = [
+    // [""]
+    // ];
+
+
+    var verifyOutputHandsonTable = new Handsontable(container4, {
+      data: data4,
+      minSpareCols: 1,
+      minSpareRows: 1,
+      startRows: 20,
+      startCols: 20,
+      rowHeaders: true,
+      colHeaders: true,
+      contextMenu: true, 
+      manualColumnMove: true,
+      manualRowMove: true,
+      undo: true,
+      copyPaste: true,
+      preventOverflow: 'horizontal'
+  });
+
+
+
+  //   var container4 = document.getElementById('verifyOutputTableDiv');
+
+  //   // var data2 = [
+  //   // [""]
+  //   // ];
+
+
+  //   var verifyOutputHandsonTable = new Handsontable(container4, {
+  //     data: data4,
+  //     minSpareCols: 1,
+  //     minSpareRows: 1,
+  //     startRows: 20,
+  //     startCols: 20,
+  //     rowHeaders: true,
+  //     colHeaders: true,
+  //     contextMenu: true, 
+  //     manualColumnMove: true,
+  //     manualRowMove: true,
+  //     undo: true,
+  //     copyPaste: true,
+  //     preventOverflow: 'horizontal'
+  // });
+
+    </script>
+
+</body>
+
+</html>

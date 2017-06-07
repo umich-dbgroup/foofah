@@ -1,0 +1,39 @@
+{
+  "name": "hover",
+  "version": "2.1.0",
+  "homepage": "http://ianlunn.github.io/Hover",
+  "authors": [
+    "Ian Lunn <hello@ianlunn.co.uk>"
+  ],
+  "description": "A collection of CSS3 powered hover effects to be applied to links, buttons, logos, SVG, featured images and so on. Easily apply to your own elements, modify or just use for inspiration. Available in CSS, Sass, and LESS.",
+  "main": "css/hover.css",
+  "keywords": [
+    "Hover",
+    "hover",
+    "hover.css",
+    "Hover Effects",
+    "CSS Effects",
+    "CSS3 Effects",
+    "CSS Hover Effects",
+    "CSS3 Hover Effects"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "2.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.1.0",
+    "commit": "948508aefa886794c7d5ec508eda9e95b9a5a233"
+  },
+  "_source": "https://github.com/IanLunn/Hover.git",
+  "_target": "^2.1.0",
+  "_originalSource": "Hover",
+  "_direct": true
+}

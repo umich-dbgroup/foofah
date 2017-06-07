@@ -1,0 +1,131 @@
+/* Note: Try to remove the following lines to see the effect of CSS positioning */
+.affix {
+    top: 20px;
+}
+
+/*t#inputTableDiv {
+    width: 50%;
+    margin: 0 auto; 
+
+}
+#outputTableDiv {
+  max-width: 800px;
+  height: 400px;
+  overflow: auto;
+}*/
+
+#processingLabel {
+  display: none;
+}
+
+
+/*.scrollingBox{
+    border:1px solid red;
+    width:85px;
+    top:200px;
+    position: static;
+}
+*/
+
+
+.button {
+    display: inline-block;
+    padding: 1em;
+    background-color: #4CAF50!important;
+    text-decoration: none!important;
+    color: white;
+    width: 200px;
+    margin-top: 2cm;
+}
+
+.button2 {
+    display: inline-block;
+    padding: 0.5em;
+    background-color: #4CAF50!important;
+    text-decoration: none!important;
+    color: white;
+    width: 200px;
+    margin-top: 0.1cm;
+}
+
+
+.border-right {
+ padding-right:20px; 
+ border-right: 2px solid #ccc;
+}
+
+#processingLabel {
+  display: none;
+}
+
+#result {
+  display: none;
+}
+
+#verify {
+  display: none;
+}
+
+
+
+.dropbtn {
+    background-color: white;
+    color: #4CAF50;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: grey;
+    color: white;
+}
+
+.dropdown {
+    float: left;
+    left:1cm;
+    position: relative;
+    display: block;
+    /*display: inline-block;*/
+    
+}
+
+.dropdown-examples{
+    /*display: none;*/
+    position: absolute;
+    /*background-color: #f9f9f9;*/
+    /*min-width: 160px;*/
+    overflow: auto;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    left: 0;
+}
+
+.dropdown-examples a {
+    color: grey;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 80%!important;
+}
+.carousel-caption{
+    color:#444!important;
+}
+
+.carousel-indicators li {
+  background-color: #999;
+  background-color: rgba(70,70,70,.25);
+}
+
+.carousel-indicators .active {
+  background-color: #444;
+}
+
+.hljs {
+    white-space: pre;
+    overflow-x: auto;
+    max-height: 200px!important;
+}
