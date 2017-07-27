@@ -12,6 +12,19 @@
 
 In fact, other Python modules `numpy`, `tabulate`, `cherrypy`, `editdistance`, `python-Levenshtein` are also required. But they could be installed using setuptools in next section.
 
+## Foofah on Docker
+
+Build Foofah container
+```sh
+$ docker build -t foofah .
+```
+
+Run Foofah contrainer
+```sh
+$ docker run -p 8080:8080 foofah
+```
+Foofah web service will be available at [localhost:8080](http://0.0.0.0:8080).
+
 ## Installation
 ```sh
 $ cd foofah

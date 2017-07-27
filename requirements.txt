@@ -1,0 +1,5 @@
+numpy
+tabulate
+cherrypy
+editdistance
+python-Levenshtein
