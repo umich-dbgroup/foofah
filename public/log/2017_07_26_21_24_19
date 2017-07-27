@@ -1,0 +1,1 @@
+{"branch_factor":1,"num_visited":1,"total_time":"0.008","program":"#\n# Synthetic Data Transformation Program\n#\n# Author:\n# Datetime: Wed Jul 26 21:24:19 2017\n#\n\nfrom foofah_libs.operators import *\n\n#\n# Raw Data\n#\nt = [['a:B']]\n\n#\n# Data Transformation\n#\nt = f_split(t, 0, ':')\n","InputTable":[["a:B"]],"OutputTable":[["a","B"]],"RawData":[[""]],"TestCase":""}

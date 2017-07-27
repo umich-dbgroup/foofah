@@ -39,7 +39,6 @@ $ python foofah.py --help
 
 To interact with Foofah through a web interface (as shown in [video](https://youtu.be/Ura2pxez_Bo)):
 ```sh
-$ cd foofah/web
 $ python foofah_server.py
 ```
 By default, the service will be available at [localhost:8080](http://0.0.0.0:8080).
