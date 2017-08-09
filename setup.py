@@ -13,5 +13,5 @@ setup(name='foofah',
                     )
       ],
       install_requires=[
-          'numpy', 'tabulate', 'cherrypy', 'editdistance', 'python-Levenshtein'
+          'numpy', 'tabulate', 'cherrypy', 'editdistance', 'python-Levenshtein', 'matplotlib'
       ])

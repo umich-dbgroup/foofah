@@ -209,6 +209,10 @@ def main():
     parser.add_argument('--globalPruneOff', action='store_true', default=False, help="turn off global pruning rules")
     parser.add_argument('--opPruneOff', action='store_true', default=False, help="turn off operator pruning rules")
 
+    parser.add_argument('--wrap1off', action='store_true', default=False, help="turn off 1st wrap operator")
+    parser.add_argument('--wrap2off', action='store_true', default=False, help="turn off 2nd wrap operator")
+    parser.add_argument('--wrap3off', action='store_true', default=False, help="turn off 3rd wrap operator")
+
     #
     # Read Command Line Arguments
     #
@@ -240,9 +244,22 @@ def main():
 
     op_prune_off = args.opPruneOff
 
+    wrap1off = args.wrap1off
+    wrap2off = args.wrap2off
+    wrap3off = args.wrap3off
+
     if op_prune_off:
-        global PRUNE_1
-        PRUNE_1 = False
+        Operations.PRUNE_1 = False
+
+    if wrap1off:
+        Operations.WRAP_1 = False
+    
+    if wrap2off:
+        Operations.WRAP_2 = False
+    
+    if wrap3off:
+        Operations.WRAP_3 = False
+
 
     global_prune_off = args.globalPruneOff
 

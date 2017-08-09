@@ -3,3 +3,4 @@ tabulate
 cherrypy
 editdistance
 python-Levenshtein
+matplotlib

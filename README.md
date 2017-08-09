@@ -7,10 +7,13 @@
  - Linux
  - Python 2.7
  - g++
- - [Boost.Python](http://www.boost.org/doc/libs/1_64_0/libs/python/doc/html/index.html)
+ - [Boost.Python](http://www.boost.org/doc/libs/1_64_0/libs/python/doc/html/index.html) ([Mac](http://www.pyimagesearch.com/2015/04/27/installing-boost-and-boost-python-on-osx-with-homebrew/), [Linux](https://stackoverflow.com/questions/12578499/how-to-install-boost-on-ubuntu))
  - [setuptools](https://pypi.python.org/pypi/setuptools)
+	 ```sh
+	$ python -m pip install -U pip setuptools
+	```
 
-In fact, other Python modules `numpy`, `tabulate`, `cherrypy`, `editdistance`, `python-Levenshtein` are also required. But they could be installed using setuptools in next section.
+In fact, other Python modules `numpy`, `tabulate`, `cherrypy`, `editdistance`, `python-Levenshtein` , `matplotlib` are also required. But they could be installed using setuptools in next section.
 
 ## Foofah on Docker
 
