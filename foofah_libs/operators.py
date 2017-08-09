@@ -1003,13 +1003,11 @@ def add_extract(current_table, target_table, cur_node=None, goal_node=None):
 
                             prev_token = find_token(cell, start, False)
 
-                            if(prev_token.isdigit() != item.isdigit() and prev_token.isalpha() != item.isalpha()):
-                                prefix_candidate.append(re.escape(prev_token))
+                            prefix_candidate.append(re.escape(prev_token))
 
                             next_token = find_token(cell, end)
 
-                            if(next_token.isdigit() != item.isdigit() and next_token.isalpha() != item.isalpha()):
-                                suffix_candidate.append(re.escape(next_token))
+                            suffix_candidate.append(re.escape(next_token))
 
                 prefix_candidate = set(prefix_candidate)
 
