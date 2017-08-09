@@ -48,7 +48,7 @@ no_wrap_time = get_sorted_time('./test_result/ted_batch_no_wrap.csv')
 x_axis = range(0, 100, 2)
 
 fig, ax = plt.subplots()
-ax.plot(x_axis, full_prune_time, color='red', label='FullPrune')
+ax.plot(x_axis, all_wrap_time, color='red', label='FullPrune')
 ax.plot(x_axis, w1_w2_time, color='blue', label='GlobalPrune')
 ax.plot(x_axis, w1_time, color='orange', label='PropPrune')
 ax.plot(x_axis, no_wrap_time, color='green', label='NoPrune')
