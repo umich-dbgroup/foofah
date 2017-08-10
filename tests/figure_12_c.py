@@ -22,15 +22,23 @@ def get_sorted_time(file_name):
 
         for i in range(1,6):
             if row[i] == '':
-                time_temp.append(60)
+                time_temp.append(70)
             else:
-                time_temp.append(float(row[i]))
-                break
+                temp = row[i].split(':')
+                time = temp[0]
+                result = temp[1]
+
+                if (result == 's'):
+                    time_temp.append(float(time))
+                    break
+                else:
+                    time_temp.append(float(time))
 
         sorted_time.append(sum(time_temp))
 
     sorted_time.sort()
     return sorted_time
+
 
 # FullPrune
 all_wrap_time = get_sorted_time('./test_result/ted_batch.csv')

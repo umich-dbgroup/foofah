@@ -28,8 +28,15 @@ for row in test_result:
         if row[i] == '':
             continue
         else:
-            num_example_for_benchmark_id = i
-            break
+            temp = row[i].split(':')
+            time = temp[0]
+            result = temp[1]
+
+            if result == 's':
+                num_example_for_benchmark_id = i
+                break
+            else:
+                continue
 
     if num_example_for_benchmark_id >= 0:
         num_examples[num_example_for_benchmark_id] += 1

@@ -23,12 +23,20 @@ for row in test_result:
 
     for i in range(1,6):
         if row[i] == '':
-            worst_time_temp.append(60)
-            average_time_temp.append(60)
+            worst_time_temp.append(70)
+            average_time_temp.append(70)
         else:
-            worst_time_temp.append(float(row[i]))
-            average_time_temp.append(float(row[i]))
-            break
+            temp = row[i].split(':')
+            time = temp[0]
+            result = temp[1]
+
+            if result == 's':
+                worst_time_temp.append(float(time))
+                average_time_temp.append(float(time))
+                break
+            else:
+                worst_time_temp.append(float(time))
+                average_time_temp.append(float(time))
 
     worst_time = max(worst_time_temp)
     average_time = reduce(lambda x, y: x + y, average_time_temp) / len(average_time_temp)
@@ -44,8 +52,8 @@ x_axis = range(0, 100, 2)
 fig, ax = plt.subplots()
 ax.plot(x_axis, worst_time_list, color='green', label='worst time')
 ax.plot(x_axis, average_time_list, '--', color='red', label='average time')
-ax.set_ylim([0, 70])
-ax.plot((0, 100), (60, 60), '--', color='black')
+ax.set_ylim([0, 40])
+ax.plot((0, 100), (30, 30), '--', color='black')
 ax.set_ylabel('Time (seconds)')
 ax.set_xlabel('Percentage of test cases')
 ax.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,

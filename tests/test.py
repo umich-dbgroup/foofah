@@ -159,17 +159,17 @@ def main():
     if time >= 0:
       print "test", benchmark_id, '[sample_size=' + test_case_id + ']:','perfect program', str(round(time, 2)), 's' 
       if benchmark_id in test_result.keys():
-        test_result[benchmark_id][test_case_id] = time
+        test_result[benchmark_id][test_case_id] = str(time) + ':s'
       else:
         test_result[benchmark_id] = {}
-        test_result[benchmark_id][test_case_id] = time
+        test_result[benchmark_id][test_case_id] = str(time) + ':s'
     elif time == -1:
       print "test", benchmark_id, '[sample_size=' + test_case_id + ']:', 'wrong program ' 
       if benchmark_id in test_result.keys():
-        test_result[benchmark_id][test_case_id] = ''
+        test_result[benchmark_id][test_case_id] = str(time) + ':f'
       else:
         test_result[benchmark_id] = {}
-        test_result[benchmark_id][test_case_id] = ''
+        test_result[benchmark_id][test_case_id] = str(time) + ':f'
 
     else:
       print "test", benchmark_id, '[sample_size=' + test_case_id + ']:', 'no program    ','timeout' 
