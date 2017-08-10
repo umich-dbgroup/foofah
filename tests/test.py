@@ -75,7 +75,7 @@ def unit_test(file_name, search_algo, if_batch, p1off, p2off, p3off):
   nodes_created = open_nodes.qsize() + len(closed_nodes)
 
 
-  # Verification
+  # Verify that the synthesize program is "perfect"
   try:
     for i, node in enumerate(reversed(path)):
       if i > 0:
@@ -88,10 +88,15 @@ def unit_test(file_name, search_algo, if_batch, p1off, p2off, p3off):
   except:
       test_table = None
 
+  # We synthesized a perfect program
   if len(path) > 0 and test_table == test_answer:
     return end - start
+
+  # We synthesized a wrong program
   elif len(path) > 0:
     return -1
+
+  # We get a timeout
   else:
     return -2
 
@@ -148,6 +153,8 @@ def main():
 
   test_result = {}
 
+  start = timer()
+
   print "-" * 100
   print "test set:", output_file
   print
@@ -178,10 +185,14 @@ def main():
       else:
         test_result[benchmark_id] = {}
         test_result[benchmark_id][test_case_id] = ''
+
+  end = timer()
   
   print
-  print "test is finished"
+  print "test is finished:", (end - start), "seconds"
   print
+
+  # Save the result in ./test_result
   
   f = open(output_file, 'w')
   f.write(',')

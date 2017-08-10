@@ -4,7 +4,7 @@ mkdir test_result
 # Create a generated figures folder
 mkdir figures
 
-# Test a-start batch with full prune
+# Test TED batch with full prune
 python test.py --test_dir data --output ./test_result/ted_batch.csv
 
 # Test bfs
@@ -13,16 +13,16 @@ python test.py --search_algo 0 --test_dir data --output ./test_result/bfs.csv
 # Test rule-based heuristic
 python test.py --search_algo 2 --test_dir data --output ./test_result/rule_based.csv
 
-# Test a-start no batch with full prune
+# Test TED no batch with full prune
 python test.py --no_batch --test_dir data --output ./test_result/ted_no_batch.csv
 
-# Test a-start batch with global prune
+# Test TED batch with global prune
 python test.py --opPruneOff --test_dir data --output ./test_result/ted_batch_global_prune.csv
 
-# Test a-start batch with op prune
+# Test TED batch with prop prune
 python test.py --globalPruneOff --test_dir data --output ./test_result/ted_batch_op_prune.csv
 
-# Test a-start batch with no prune
+# Test TED batch with no prune
 python test.py --globalPruneOff --opPruneOff --test_dir data --output ./test_result/ted_batch_no_prune.csv
 
 # Test bfs with no prune

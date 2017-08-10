@@ -33,7 +33,8 @@ def get_sorted_time(file_name):
                     break
                 else:
                     time_temp.append(float(time))
-
+        
+        # The time for this benchmark is the total time (including the failed ones) the user experience until Foofah returns a perfect program for this benchmark.
         sorted_time.append(sum(time_temp))
 
     sorted_time.sort()
